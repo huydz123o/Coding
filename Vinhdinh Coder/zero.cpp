@@ -9,34 +9,36 @@ typedef long long ll;
 
 ll gt(ll a)
 {
-    if (a == 1) return 1;
+    if ( a == 1) return 1;
     return a * gt(a - 1);
 }
-ll b[10001];
 void solve()
 {
     ll n;
     cin >> n;
     ll a = gt(n);
-    ll cnt = 0;
-    for (ll i = 1; i * i <= a; i++)
+    string s = "";
+    while (a)
     {
-        if (a % i == 0)
-        {
-            cnt++;
-            if (i != a / i)
-            {
-                cnt++;
-            }
-        }
+        s += char(a % 10 + 48);
+        a /= 10;
+    }
+    ll i = 0, cnt = 0;
+    while (s[i] == '0')
+    {
+        cnt++;
+        i++;
     }
     cout << cnt;
-
 }
 
 int main()
 {
     ios_base::sync_with_stdio(0); cin.tie(0);
+#ifndef ONLINE_JUDGE
+    freopen("main.inp", "r", stdin);
+    freopen("main.out", "w", stdout);
+#endif
 
     ll t = 1;
     while (t--)
