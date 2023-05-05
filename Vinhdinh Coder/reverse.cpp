@@ -8,7 +8,10 @@ typedef long long ll;
 
 void solve()
 {
-
+    string s;
+    cin >> s;
+    reverse(s.begin(), s.end());
+    cout << s;
 }
 
 int main()

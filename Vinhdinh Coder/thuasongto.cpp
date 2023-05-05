@@ -6,8 +6,19 @@ using namespace std;
 typedef unsigned long long ull;
 typedef long long ll;
 
+
 void solve()
 {
+    ll n;
+    cin >> n;
+    ll sum = 0;
+    for (ll i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0) sum += i;
+        while (n % i == 0) n /= i;
+    }
+    if (n > 1) sum += n;
+    cout << sum;
 
 }
 
